@@ -37,10 +37,13 @@ const x = y => y
 
 //ES5
 function add (x){
-    return function (y){
-        return x + y
+    return function (y){ //invoke 1
+        return x + y       //invoke 2
     }
 }
+
+//ES6
+const add = x => y => (x+y)
 
 // ===================INCORRECT ATTEMPT=================
 // //ES5
@@ -56,4 +59,23 @@ function add (x){
 
 // //ES6
 // const add = (x,y) => x,y => func1 + func2
+// ===============END INCORRECT ATTEMPT=================
+
+// 5. Write a function that takes a binary function, and makes it callable with two invocations.
+
+//ES5
+function binary(binaryFunction){
+    return function (x) {
+        return function (y){
+            return binaryFunction(x,y);
+        }
+
+    }
+}
+
+// ===================INCORRECT ATTEMPT=================
+// function binary (func1, func2) {
+//     return func1, func2
+    
+// }
 // ===============END INCORRECT ATTEMPT=================
