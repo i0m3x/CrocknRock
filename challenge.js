@@ -65,17 +65,26 @@ const add = x => y => (x+y)
 
 //ES5
 function binary(binaryFunction){
-    return function (x) {
-        return function (y){
-            return binaryFunction(x,y);
+    return function (x) {   // not an invocation
+        return function (y){    //invocation 1
+            return binaryFunction(x,y); //invocation 2
         }
 
     }
 }
+//ES6
+const binary = 
+    binaryFunction => 
+        x =>
+            y =>
+                binaryFunction(x,y);
 
 // ===================INCORRECT ATTEMPT=================
 // function binary (func1, func2) {
 //     return func1, func2
     
 // }
+
+//ES6
+// const binary = binaryFunction => function = x => function = y => binaryFunction = (x,y)
 // ===============END INCORRECT ATTEMPT=================
