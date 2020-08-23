@@ -36,15 +36,24 @@ const x = y => y
 // 4. Write a function that adds from two invocations.
 
 //ES5
-function add (x,y){
-    function func1 (x){
-        return x
+function add (x){
+    return function (y){
+        return x + y
     }
-    function func2 (y){
-        return y
-    }
-    return func1 + func2
 }
 
-//ES6
-const add = (x,y) => x,y => func1 + func2
+// ===================INCORRECT ATTEMPT=================
+// //ES5
+// function add (x,y){
+//     function func1 (x){
+//         return x
+//     }
+//     function func2 (y){
+//         return y
+//     }
+//     return func1 + func2
+// }
+
+// //ES6
+// const add = (x,y) => x,y => func1 + func2
+// ===============END INCORRECT ATTEMPT=================
