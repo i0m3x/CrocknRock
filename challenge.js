@@ -73,11 +73,11 @@ function binary(binaryFunction){
     }
 }
 //ES6
-const binary = 
-    binaryFunction => 
-        x =>
-            y =>
-                binaryFunction(x,y);
+    const binary = 
+        binaryFunction => 
+            x =>
+                y =>
+                    binaryFunction(x,y);
 
 // ===================INCORRECT ATTEMPT=================
 // function binary (func1, func2) {
@@ -87,4 +87,19 @@ const binary =
 
 //ES6
 // const binary = binaryFunction => function = x => function = y => binaryFunction = (x,y)
+// ===============END INCORRECT ATTEMPT=================
+
+// 6. Write a function that takes a function and an argument, and returns a function that can supply a second argument.
+
+//ES5
+function currycomb(func1, x){   //takes a function and an argument
+    return function(y) {
+        return func1(x,y);  //returns a function that can supply a second argument.
+    }
+}
+
+// ===================INCORRECT ATTEMPT=================
+// function firewall(func1, x) {    //MISSING MIDDLE LOGIC
+//     return func1(x,y);
+// }
 // ===============END INCORRECT ATTEMPT=================
