@@ -98,8 +98,15 @@ function currycomb(func1, x){   //takes a function and an argument
     }
 }
 
+//ES6
+const currycomb = (func1, x) => y => func1 = (x,y);
+
+//http://www.crockford.com/javascript/www_svendtofte_com/code/curried_javascript/index.html
 // ===================INCORRECT ATTEMPT=================
 // function firewall(func1, x) {    //MISSING MIDDLE LOGIC
 //     return func1(x,y);
 // }
 // ===============END INCORRECT ATTEMPT=================
+
+// 7. Without writing any new functions, show three ways to create the `inc` function. Using functions from the previous six problems.
+
