@@ -66,8 +66,8 @@ const add = x => y => (x+y)
 //ES5
 function binary(binaryFunction){
     return function (x) {   // not an invocation
-        return function (y){    //invocation 1
-            return binaryFunction(x,y); //invocation 2
+        return function (y){    // not an invocation
+            return binaryFunction(x,y); //invocation 1 and 2 -CONSULT TUTOR
         }
 
     }
@@ -111,41 +111,73 @@ const currycomb = (func1, x) => y => func1 = (x,y);
 // 7. Without writing any new functions, show three ways to create the `inc` function. Using functions from the previous six problems.
 
 //ES5
-
-function binary(binaryFunction){
-    return function (x) {   // not an invocation
-        return function (y){    //invocation 1
-            return binaryFunction(x,y); //invocation 2
-        }
-
-    }
+function add (x,n){
+    return x + n
 }
-// ++++++++ DIDN'T THINK TO ADD THESE, BUT THEY ARE NEEDED
 
 function add (x){
-    return function (y){ 
-        return x + y  
+    return function (y){
+        return x + y
     }
 }
 
-function currycomb(func1, x){ 
-    return function(y) {
-        return func1(x,y); 
+function curry (fn, x){
+    return function (x){
+        return fn (x,y)
     }
 }
 
+//ES6
+const add = (x,n) =>  x + y
 
-// ===============FUNCTIONALITY IMPOSED=================
-function increment (){
-    n = 0
-    n++
-    return n;
-    }
-// ===============END =================
+const add = x => y => (x+y)
 
-//ES6 CORRECT ANSWER BELOW (TAKING FROM THREE FUNCTIONS ABOVE BUT WITHIN 7)
-function curry(binaryFunction, x){
-    return function(y){
-        return binaryFunction(x,y);
-    }
-}
+const curry = (fn,x) => y => fn(x,y)
+
+
+//below is an incorrect attempt of above
+// function curry (fn, x){
+//     return (x){
+//         return (fn,y)
+//     }
+// }
+// ===================INCORRECT ATTEMPT for problem 7=================
+
+// function binary(binaryFunction){    //had a feeling I needed this
+//     return function (x) {   
+//         return function (y){   
+//             return binaryFunction(x,y); 
+//         }
+
+//     }
+// }
+// // ++++++++ DIDN'T THINK TO ADD THESE, BUT THEY ARE NEEDED
+
+// function add (x){
+//     return function (y){    //for the counter
+//         return x + y  
+//     }
+// }
+
+// function currycomb(func1, x){   //for calling the counter and adding to it
+//     return function(y) {
+//         return func1(x,y); 
+//     }
+// }
+
+
+// // ===============FUNCTIONALITY IMPOSED=================
+// function increment (){
+//     n = 0   
+//     n++     //this is what the second function above does - add
+//     return n;   //this is what currycomb does
+//     }
+// // ===============END =================
+
+// //ES6 CORRECT ANSWER BELOW (TAKING FROM THREE FUNCTIONS ABOVE BUT WITHIN 7)
+// function curry(binaryFunction, x){
+//     return function(y){
+//         return binaryFunction(x,y);
+//     }
+// }
+// ===============END INCORRECT ATTEMPT=================
