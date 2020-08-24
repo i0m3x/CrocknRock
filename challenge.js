@@ -110,3 +110,42 @@ const currycomb = (func1, x) => y => func1 = (x,y);
 
 // 7. Without writing any new functions, show three ways to create the `inc` function. Using functions from the previous six problems.
 
+//ES5
+
+function binary(binaryFunction){
+    return function (x) {   // not an invocation
+        return function (y){    //invocation 1
+            return binaryFunction(x,y); //invocation 2
+        }
+
+    }
+}
+// ++++++++ DIDN'T THINK TO ADD THESE, BUT THEY ARE NEEDED
+
+function add (x){
+    return function (y){ 
+        return x + y  
+    }
+}
+
+function currycomb(func1, x){ 
+    return function(y) {
+        return func1(x,y); 
+    }
+}
+
+
+// ===============FUNCTIONALITY IMPOSED=================
+function increment (){
+    n = 0
+    n++
+    return n;
+    }
+// ===============END =================
+
+//ES6 CORRECT ANSWER BELOW (TAKING FROM THREE FUNCTIONS ABOVE BUT WITHIN 7)
+function curry(binaryFunction, x){
+    return function(y){
+        return binaryFunction(x,y);
+    }
+}
